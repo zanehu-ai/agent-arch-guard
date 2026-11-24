@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install ast-grep CLI
+        run: |
+          npm install -g @ast-grep/cli
+          ast-grep --version
+
+      - name: Run full automated test suite
+        run: node --test tests/*.test.mts
+
+      - name: Dogfood self-check on this repository (must pass with 0 violations)
+        run: node src/cli.mts check --all --require-ast-grep --cwd .
+
+      - name: Run fixture demos (expected guardrail catch & noise scan)
+        run: |
+          node src/cli.mts check --all --require-ast-grep --config examples/arch-guard.json --cwd examples/fixture-app --json > /tmp/check-demo.json || true
+          node -e 'const fs = require("node:fs"); const r = JSON.parse(fs.readFileSync("/tmp/check-demo.json", "utf8")); if (r.engine !== "ast-grep" || r.violationCount < 5) { process.exit(1); }'
+          node src/cli.mts noise --config examples/arch-guard.json --cwd examples/fixture-app

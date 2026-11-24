@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-label="agent-arch-guard 5-layer deterministic verification pipeline">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#111111" />
+    </marker>
+  </defs>
+  <rect width="960" height="340" fill="#ffffff" />
+  <rect x="16" y="16" width="928" height="308" fill="#ffffff" stroke="#e5e5e5" stroke-width="1" rx="8" />
+
+  <text x="40" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="700" fill="#111111">MULTI-AGENT CODE DRIFT PREVENTION PIPELINE (ZERO LOCKS / READ-ONLY)</text>
+  <line x1="40" y1="64" x2="920" y2="64" stroke="#e5e5e5" stroke-width="1" />
+
+  <!-- Box 1 -->
+  <rect x="40" y="92" width="148" height="128" rx="6" fill="#fafafa" stroke="#111111" stroke-width="1.5" />
+  <text x="54" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#111111">1. Discovery</text>
+  <text x="54" y="138" font-family="ui-monospace, monospace" font-size="11" fill="#444444">llms.txt + config</text>
+  <text x="54" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Expose shared UI</text>
+  <text x="54" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">&amp; core helpers</text>
+  <text x="54" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">before coding</text>
+
+  <line x1="188" y1="156" x2="218" y2="156" stroke="#111111" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Box 2 -->
+  <rect x="220" y="92" width="152" height="128" rx="6" fill="#fafafa" stroke="#111111" stroke-width="1.5" />
+  <text x="234" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#111111">2. Git Delta Scope</text>
+  <text x="234" y="138" font-family="ui-monospace, monospace" font-size="11" fill="#444444">--no-optional-locks</text>
+  <text x="234" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Diff added lines</text>
+  <text x="234" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">vs base ref +</text>
+  <text x="234" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">untracked files</text>
+
+  <line x1="372" y1="156" x2="402" y2="156" stroke="#111111" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Box 3 -->
+  <rect x="404" y="92" width="168" height="128" rx="6" fill="#111111" stroke="#111111" stroke-width="1.5" />
+  <text x="418" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff">3. AST Guardrails</text>
+  <text x="418" y="138" font-family="ui-monospace, monospace" font-size="11" fill="#d4d4d4">ast-grep Tree-sitter</text>
+  <text x="418" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#e5e5e5">Native tags / style</text>
+  <text x="418" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#e5e5e5">Raw Response.json</text>
+  <text x="418" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#e5e5e5">env / fetch / wheels</text>
+
+  <line x1="572" y1="156" x2="602" y2="156" stroke="#111111" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Box 4 -->
+  <rect x="604" y="92" width="152" height="128" rx="6" fill="#fafafa" stroke="#111111" stroke-width="1.5" />
+  <text x="618" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#111111">4. Line Ratchet</text>
+  <text x="618" y="138" font-family="ui-monospace, monospace" font-size="11" fill="#444444">&lt;= 300 lines cap</text>
+  <text x="618" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Freeze legacy debt</text>
+  <text x="618" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Block net growth</text>
+  <text x="618" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Reward reductions</text>
+
+  <line x1="756" y1="156" x2="786" y2="156" stroke="#111111" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Box 5 -->
+  <rect x="788" y="92" width="132" height="128" rx="6" fill="#fafafa" stroke="#111111" stroke-width="1.5" />
+  <text x="802" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#111111">5. Noise Audit</text>
+  <text x="802" y="138" font-family="ui-monospace, monospace" font-size="11" fill="#444444">rg + SHA-256</text>
+  <text x="802" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Clone functions</text>
+  <text x="802" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Duplicate helpers</text>
+  <text x="802" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#555555">Orphan modules</text>
+
+  <!-- Outcome bar -->
+  <rect x="40" y="248" width="880" height="48" rx="6" fill="#fafafa" stroke="#d4d4d4" stroke-width="1" />
+  <text x="58" y="277" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#111111">EXIT 0: Mergeable diff (0 drift)   |   EXIT 1: Exact file:line violation + remediation pointer to shared primitives</text>
+</svg>

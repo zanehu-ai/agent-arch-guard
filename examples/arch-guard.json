@@ -1,0 +1,14 @@
+{
+  "uiPackageName": "@acme/ui",
+  "corePackageName": "@acme/core",
+  "coreHttpPackageName": "@acme/core/http",
+  "businessDirs": ["apps", "src"],
+  "sharedUiDirs": ["packages/ui", "src/ui"],
+  "coreDirs": ["packages/core", "src/lib"],
+  "excludedPaths": ["node_modules", "dist", ".next", "coverage"],
+  "serverPathPatterns": ["/api/", "/server/", "route.ts"],
+  "envConfigPatterns": ["config", "env"],
+  "sharedFormatterNames": ["formatters.ts", "format.ts"],
+  "allowedGlobalCssNames": ["globals.css", "tokens.css"],
+  "maxFileLines": 300
+}

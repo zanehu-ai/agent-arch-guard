@@ -1,0 +1,38 @@
+{
+  "name": "agent-arch-guard",
+  "version": "0.1.0",
+  "description": "Deterministic AST architecture guardrails & code-noise auditor to stop multi-agent coding drift (Node 22 + ast-grep + ripgrep).",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "agent-arch-guard": "./src/cli.mts"
+  },
+  "exports": {
+    ".": "./src/check-arch.mts",
+    "./noise": "./src/scan-noise.mts"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mts",
+    "self-check": "node src/cli.mts check --all --cwd .",
+    "demo": "node src/cli.mts check --all --config examples/arch-guard.json --cwd examples/fixture-app || true",
+    "noise:demo": "node src/cli.mts noise --config examples/arch-guard.json --cwd examples/fixture-app"
+  },
+  "keywords": [
+    "ai-coding",
+    "ast-grep",
+    "guardrails",
+    "architecture",
+    "multi-agent",
+    "static-analysis",
+    "code-quality",
+    "typescript"
+  ],
+  "author": "Zane Hu (https://zanehu.ai)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanehu-ai/agent-arch-guard.git"
+  }
+}
